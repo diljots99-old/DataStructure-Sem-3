@@ -1,5 +1,5 @@
 /*
-*program to find factorial with functions....... :-)
+*Conversion from Infix To Postfix
 */
 #include "stdio.h"
 #include "stdlib.h"
