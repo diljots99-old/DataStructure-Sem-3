@@ -1,3 +1,6 @@
+/*
+*Linear Search in array
+*/
 #include<stdio.h>
 #include<conio.h>
 
