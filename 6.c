@@ -1,4 +1,6 @@
-/*Deletion Linked List*/
+/*
+*Deletion Linked List
+*/
 #include "stdio.h"
 #include "conio.h"
 #include "stdlib.h"
