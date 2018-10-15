@@ -1,7 +1,17 @@
+<<<<<<< HEAD
 #include  "stdio.h "
 #include "stdlib.h " /* for exit() */
 //#include " ctype.h " /* for isdigit(char ) */
 #include "string.h "
+=======
+/*
+*Conversion from Infix To Postfix
+*/
+#include "stdio.h"
+#include "stdlib.h"
+#include "ctype.h"
+#include "string.h"
+>>>>>>> 7331227cd8ce5b59995d7286b0a4747956df62b9
 
 #define SIZE 100
 
