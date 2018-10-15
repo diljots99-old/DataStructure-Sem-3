@@ -1,9 +1,9 @@
 #include  "stdio.h "
-#include "stdlib.h " /* for exit() */ 
-#include " ctype.h " /* for isdigit(char ) */ 
+#include "stdlib.h " /* for exit() */
+//#include " ctype.h " /* for isdigit(char ) */
 #include "string.h "
 
-    #define SIZE 100
+#define SIZE 100
 
 char stack[SIZE];
 int top = -1;
@@ -96,7 +96,7 @@ void InfixToPostfix(char infix_exp[], char postfix_exp[]) {
                 x = pop();
             }
         } else {
-            /* if current symbol is neither               
+            /* if current symbol is neither
 				   operand not '(' nor ')' and nor operator */
             printf("\nInvalid infix Expression.\n");
             getchar();
@@ -129,6 +129,6 @@ int main() {
     InfixToPostfix(infix, postfix);
     printf("Postfix Expression: ");
     puts(postfix); /* print postfix expression */
-
+    system("pause");
     return 0;
 }
