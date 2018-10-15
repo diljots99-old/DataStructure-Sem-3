@@ -1,4 +1,6 @@
-/*Search Linked List*/
+/*
+*Search Linked List
+*/
 #include "stdio.h"
 #include "conio.h"
 #include "stdlib.h"
