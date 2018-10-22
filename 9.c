@@ -1,17 +1,10 @@
-<<<<<<< HEAD
+/*
+*Convert infix to postfix using Stack
+*/
 #include  "stdio.h "
 #include "stdlib.h " /* for exit() */
 //#include " ctype.h " /* for isdigit(char ) */
 #include "string.h "
-=======
-/*
-*Conversion from Infix To Postfix
-*/
-#include "stdio.h"
-#include "stdlib.h"
-#include "ctype.h"
-#include "string.h"
->>>>>>> 7331227cd8ce5b59995d7286b0a4747956df62b9
 
 #define SIZE 100
 
@@ -20,13 +13,13 @@ int top = -1;
 
 /* define push operation */
 
-void push(char item) 
+void push(char item)
 {
-    if (top >= SIZE - 1) 
+    if (top >= SIZE - 1)
     {
         printf("\nStack Overflow.");
-    } 
-    else 
+    }
+    else
     {
         top = top + 1;
         stack[top] = item;
@@ -34,7 +27,7 @@ void push(char item)
 }
 
 /* define pop operation */
-char pop() 
+char pop()
 {
     char item;
 
@@ -44,7 +37,7 @@ char pop()
         getchar();
         exit(1);
     }
-    else 
+    else
     {
         item = stack[top];
         top = top - 1;
@@ -52,39 +45,39 @@ char pop()
     }
 }
 
-int is_operator(char symbol) 
+int is_operator(char symbol)
 {
-    if (symbol == '^' || symbol == '*' || symbol == '/' || symbol == '+' || symbol == '-') 
+    if (symbol == '^' || symbol == '*' || symbol == '/' || symbol == '+' || symbol == '-')
     {
         return 1;
-    } 
-    else 
+    }
+    else
     {
         return 0;
     }
 }
 
-int precedence(char symbol) 
+int precedence(char symbol)
 {
-    if (symbol == '^') /* exponent operator, highest precedence*/ 
+    if (symbol == '^') /* exponent operator, highest precedence*/
     {
         return (3);
-    } 
-    else if (symbol == '*' || symbol == '/') 
+    }
+    else if (symbol == '*' || symbol == '/')
     {
         return (2);
-    } 
-    else if (symbol == '+' || symbol == '-') /* lowest precedence */ 
+    }
+    else if (symbol == '+' || symbol == '-') /* lowest precedence */
     {
         return (1);
-    } 
-    else 
+    }
+    else
     {
         return (0);
     }
 }
 
-void InfixToPostfix(char infix_exp[], char postfix_exp[]) 
+void InfixToPostfix(char infix_exp[], char postfix_exp[])
 {
     int i, j;
     char item;
@@ -101,16 +94,16 @@ void InfixToPostfix(char infix_exp[], char postfix_exp[])
         if (item == '(')
         {
             push(item);
-        } 
-        else if (isdigit(item) || isalpha(item)) 
+        }
+        else if (isdigit(item) || isalpha(item))
         {
             postfix_exp[j] = item; /*add operand symbol to postfix expr */
             j++;
-        } 
-        else if (is_operator(item) == 1) /* means symbol is operator */ 
+        }
+        else if (is_operator(item) == 1) /* means symbol is operator */
         {
             x = pop();
-            while (is_operator(x) == 1 && precedence(x) >= precedence(item)) 
+            while (is_operator(x) == 1 && precedence(x) >= precedence(item))
             {
                 postfix_exp[j] = x; /* so pop all higher precendence operator and */
                 j++;
@@ -118,18 +111,18 @@ void InfixToPostfix(char infix_exp[], char postfix_exp[])
             }
             push(x);
             push(item); /* push current oprerator symbol onto stack */
-        } 
-        else if (item == ')') /* if current symbol is ')' then */ 
+        }
+        else if (item == ')') /* if current symbol is ')' then */
         {
             x = pop(); /* pop and keep popping until */
-            while (x != '(') /* '(' encounterd */ 
+            while (x != '(') /* '(' encounterd */
             {
                 postfix_exp[j] = x;
                 j++;
                 x = pop();
             }
         }
-        else 
+        else
         {
             /* if current symbol is neither operand not '(' nor ')' and nor operator */
             printf("\nInvalid infix Expression.\n");
@@ -140,7 +133,7 @@ void InfixToPostfix(char infix_exp[], char postfix_exp[])
         item = infix_exp[i]; /* go to next symbol of infix expression */
     }
 
-    if (top > 0) 
+    if (top > 0)
     {
         printf("\nInvalid infix Expression.\n");
         getchar();
@@ -155,10 +148,10 @@ int main()
 {
     char infix[SIZE], postfix[SIZE];
 
-    printf("ASSUMPTION: The infix expression contains single letter variables and single digit constants only.\n");
+    printf("ASSUMPTION: The infix expression contains \nsingle letter variables and single digit constants only.\n");
     printf("\nEnter Infix expression : ");
     gets(infix);
-   
+
     InfixToPostfix(infix, postfix);
     printf("Postfix Expression: ");
     puts(postfix); /* print postfix expression */
